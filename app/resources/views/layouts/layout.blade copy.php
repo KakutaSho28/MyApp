@@ -55,7 +55,7 @@
                                         {{ __('マイページ')}}
                                     </a>
                                     @if(Auth::user()-> role == 1)
-                                    <a class="text-warning bg-secondary dropdown-item" href="{{route('liked.post',Auth::id())}} ">
+                                    <a class="text-warning bg-secondary dropdown-item" href="{{ route('liked.post',Auth::id())}} ">
                                         {{ __('いいねした投稿')}}
                                     </a>
                                     @endif

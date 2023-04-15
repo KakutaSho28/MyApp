@@ -26,8 +26,8 @@
                             <label for='date' class='mt-2'>日付</label>
                                 <input type='date' class='form-control' name='date' id='date' value="{{ old('date') }}"/>
                                 <label for="category" class='mt-2'>世代別カテゴリ</label>
-                                    <select name="category" id="category" name="category" value="{{ old('category') }}">
-                                        <option hidden>選択してください。</option>
+                                    <select id="category" name="category" value="{{ old('category') }}">
+                                        <option hidden value="">選択してください。</option>
                                         <option value="1">U-12</option>
                                         <option value="2">U-15</option>
                                         <option value="3">U-18</option>
