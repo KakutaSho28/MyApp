@@ -16,8 +16,16 @@
             @endif
             <form action="{{ route('user.edit',$user['id']) }}" method="POST" enctype="multipart/form-data">
               @csrf
+              
               <label for="icon">プロフィール画像</label>
-              <input type="file" name="img" file="{{ old('img',$user['img']) }}">
+              <div class="text-center">
+                @if($user['img'] == "")
+                    <img id="no_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
+                @else
+                    <img id="in_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}">
+                    <input type="file" id="img" name="img" file="{{ old('img',$user['img']) }}">
+                @endif
+              </div>
               <div class="form-group">
                 <label for="name">名前</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name',$user['name']) }}" />
@@ -44,14 +52,34 @@
                 <label for="tel">電話番号</label>
                 <input type="tel"  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" class="form-control" id="tel" name="tel" value="{{ old('tel',$user['tel']) }}" />
               </div>
-              <div class="text-right">
+              <div class="text-center">
                 <button type="submit" class="btn btn-primary">{{ __('編集') }}</button>
               </div>
             </div>
             </form>
+            <div class="text-right mx-2">
+                  <a href="route('softdel.user',Auth::id()) ">
+                      アカウント削除
+                  </a>
+              </div>
           </div>
         </nav>
       </div>
     </div>
   </div>
 @endsection
+<script>
+  $("#img").on("change", function (e) {
+
+// 2. 画像ファイルの読み込みクラス
+var reader = new FileReader();
+
+// 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
+reader.onload = function (e) {
+    $("#in_img").attr("src", e.target.result);
+}
+
+// 4. 読み込んだ画像ファイルをURLに変換
+reader.readAsDataURL(e.target.files[0]);
+});
+</script>

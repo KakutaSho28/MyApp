@@ -49,26 +49,19 @@
             <button class='btn btn-secondary'>戻る</button>
         </a>
     </div>
-    @if(Auth::user()->role == 1 )
-    <div class='d-flex mx-3 my-3'>
-        <a href="route('softdel.user',Auth::id()) ">
-            <button class='btn btn-secondary'>削除</button>
-        </a>
-    </div>
-    @endif
     @if(Auth::user()->role == 0)
     <div class='d-flex mx-3 my-3'>
         <a href="route('delete.user',$user['id']) ">
             <button class='btn btn-secondary'>削除</button>
         </a>
-    @endif
     </div>
+    @endif
     @if(Auth::user()->role == 1 )
     <div class='d-flex mx-3 my-3'>
         <a href="{{ route('user.edit',$user['id']) }}">
-            <button class='btn btn-secondary'>アカウント編集</button>
+            <button class='btn btn-info'>アカウント編集</button>
         </a>
-    @endif
     </div>
+    @endif
 </div>
 @endsection

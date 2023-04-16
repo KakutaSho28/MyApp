@@ -11,9 +11,27 @@ use Illuminate\Support\Facades\Auth;
 class DisplayController extends Controller
 {
     public function index(Request $request) {//ロール分け、投稿内容をメインページに表示
+        switch ($request->keyword) {
+            case '一般':
+                $value = 0;
+                break;
+            case 'U-12':
+                $value = 1;
+                break;
+            case 'U-15':
+                $value = 2;
+                break;
+            case 'U-18':
+                $value = 3;
+                break;
+            default :
+                $value = $request->keyword;
+                break ;
+        }
         if(isset($request->keyword) && $request->type == 'post'){//投稿検索（フリーワード検索）
             $posts = Post::where('title', 'like', '%'.$request->keyword.'%')
                             ->orWhere('date', 'like', '%'.$request->keyword.'%')
+                            ->orWhere('category', 'like', '%'.$value.'%')
                             ->get();
         }else{
             $posts = Post::all();
@@ -22,7 +40,7 @@ class DisplayController extends Controller
             $user = new User;
             $users = $user->where('role', 1)->get();
             if(isset($request->keyword) && $request->type == 'user'){//一般ユーザ検索
-                $users = User::whereHas('user', function ($query) use ($request) {
+                $users = User::whereHas('user', function ($query) use ($request) {//管理者がユーザー情報を管理する処理
                     $query->where('name', 'like', '%'.$request->keyword.'%')
                         ->orWhere('category', 'like', '%'.$request->keyword.'%');
                 })->where('id',auth::id())
@@ -76,6 +94,6 @@ class DisplayController extends Controller
         return view('user_detail',[
             'user' => $user,
         ]);
-}
+    }
 
 }

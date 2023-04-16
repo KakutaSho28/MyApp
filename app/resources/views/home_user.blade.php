@@ -32,8 +32,17 @@
                                     <th scope='col'>{{ $post['title'] }}</th>
                                     <th scope='col'>{{ $post['date'] }}</th>
                                     <th scope='col'>{{ config('const')[$post['category']] }}</th>
-                                    <th scope='col'><button type='hidden' class='btn btn-info'>いいね</button></th>
-                                    <th scope='col'><button type='hidden' class='btn btn-secondary'>コメント</button></th>
+                                    <th scope='col'>
+                                    @if (!$post->isLikedBy(Auth::id()))
+                                        <span class="likes">
+                                        <button type="hidden" class="btn btn-info fas fa-music like-toggle" data-post-id="{{ $post->id }}">いいね</button>
+                                        </span><!-- /.likes -->
+                                    @else
+                                        <span class="likes">
+                                            <button type="hidden" class="btn btn-info fas fa-music heart like-toggle liked" data-post-id="{{ $post->id }}">いいね</button>
+                                        </span><!-- /.likes -->
+                                    @endif
+                                    </th>
                                     <th scope='col'><a href="{{ route('post.booking',$post['id']) }}">詳細</a></th>
                                 </tr>
                             @endforeach

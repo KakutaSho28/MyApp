@@ -35,6 +35,8 @@ Route::get('/booking_form/{post}','RegistrationController@bookingDetailForm')->n
 Route::get('/booking_create/{post}','RegistrationController@bookingForm')->name('booking.post');
 Route::get('/booking_cancel/{booking}','RegistrationController@bookingCancel')->name('booking.cancel');//予約キャンセル
 
+Route::post('/like','RegistrationController@like')->name('liked.post');//いいね処理
+
 
 Route::get('/edit_userform/{user}','RegistrationController@editUserForm')->name('user.edit');//アカウント変更
 Route::post('/edit_userform/{user}','RegistrationController@editUser');

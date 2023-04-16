@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Like;
 
 class User extends Authenticatable
 {
@@ -42,4 +43,8 @@ class User extends Authenticatable
         2 => 'U-15',
         3 => 'U-18',
     ];
+    public function like()
+    {
+        return $this->hasMany('App\Like');
+    }
 }
