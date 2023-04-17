@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/like.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     @yield('stylesheet')
 </head>
 <body>
@@ -60,6 +61,9 @@
                                     <a class="text-warning bg-secondary dropdown-item" href="{{route('liked.post',Auth::id())}} ">
                                         {{ __('いいねした投稿')}}
                                     </a>
+                                    @elseif(Auth::user()-> role == 0)
+                                    <a class="text-warning bg-secondary dropdown-item" href="{{route('account',Auth::id())}} ">
+                                        {{ __('ユーザー情報')}}
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

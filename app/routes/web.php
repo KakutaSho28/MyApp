@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/post/{post}/detail','DisplayController@postDetail')->name('post.detail');//投稿内容詳細表示
 Route::get('/post/{id}/detail','DisplayController@postBooking')->name('post.booking');//投稿内容詳細表示(予約)
 Route::get('/user/{user}/detail','DisplayController@userDetail')->name('user.detail');//一般ユーザ詳細表示
-Route::get('/liked/{like}','DisplayController@likedPost')->name('liked.post');//いいねした投稿表示
+Route::get('/liked/{id}','DisplayController@likedPost')->name('liked.post');//いいねした投稿表示
 
 
 
