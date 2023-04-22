@@ -58,7 +58,7 @@
             </div>
             </form>
             <div class="text-right mx-2">
-                  <a href="route('softdel.user',Auth::id()) ">
+                  <a class="user-del" href="route('softdel.user',Auth::id())">
                       アカウント削除
                   </a>
               </div>

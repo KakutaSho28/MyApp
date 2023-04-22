@@ -2,69 +2,75 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="concept-title m-auto">
+    <p class="concept-left">個人練習をもっとしたい...</p>
+        <p class="concept-right">シュート成功率を上げたい...</p>
+        <div class="concept">そんなあなたに寄り添い、サポートします！</div>
+    </div>
+    <div class="row justify-content-around mt-5 mb-5">
+        <div class="col-md-4 mt-2">
+            <div class="profile">
+                <h3 class="text-center">管理人プロフィール</h3>
+                <h4 class="text-center">角田　翔</h4>
+                <p class="text-center">
+                    2001年4月28日(21歳)　青森県南津軽郡藤崎町出身<br>
+                    ・全国ミニ2013出場<br>
+                    ・青森県選抜、全中2016ベスト16<br>
+                    ・高校総体県ベスト8<br>
+                </p>
+            </div>
+            <img class="mt-3" style="width: 100%; border-radius: 50%;" src="{{ asset('shoot.jpg') }}" alt="">
+        </div>
+        <div class="col-md-8 mt-5">
             <div class="card">
-                <div class="card-header">{{ __('ログイン') }}</div>
-
+            <div class="card-header">
+                <img style="width: 100%;" src="{{ asset('app_title.jpg') }}" alt="">
+            </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                            <label class="_aa48 _aa49">
+                                <span class="_aa4a">メールアドレス</span>
+                                <input aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="email" type="email" class="_aa4b _add6 _ac4d" value="{{ old('email') }}" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </label>
                         </div>
-
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                            <label class="_aa48 _aa49">
+                                <span class="_aa4a">パスワード</span>
+                                <input aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="password" type="password" class="_aa4b _add6 _ac4d">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </label>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('ログイン情報を保持しますか？') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-login">
                                     {{ __('ログイン') }}
                                 </button>
-
+                            </div>
+                        </div>
+                        <div class="form-group row mt-5">
+                            <div class="col text-center">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <p class="pr">
+                                <a href="{{ route('password.request') }}">
                                         {{ __('パスワードを忘れた方はこちら') }}
                                     </a>
+                                </p>
                                 @endif
                             </div>
                         </div>
                     </form>
+                    <div class="create-user"><a href="{{ route('register') }}">{{ __('会員登録はこちら') }}</a></div>
                 </div>
             </div>
         </div>

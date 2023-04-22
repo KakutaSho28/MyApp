@@ -1,0 +1,193 @@
+body{
+    background-color: white;
+}
+a{
+    color: none;
+    text-decoration: none;
+}
+.container{
+    max-width: 80%;
+}
+.profile{
+    width: 500px;
+    margin-left: -66px;
+}
+.col-md-8 {
+    flex: 0 0 66.66666667%;
+    max-width: 47.666667%;
+}
+.liked {
+    color: rgb(219, 64, 126);
+}
+.liked:focus, .liked:hover{
+    color: rgb(219, 64, 126);
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: #fcb723fe;
+}
+.navbar-light .navbar-nav .nav-link:focus {
+    color: #fcb723fe;
+}
+.btn:focus, .btn.focus{
+    box-shadow: none;  
+}
+.bg-purple{
+    background-color: #532682fe;
+}
+.nav-title {
+    color: white;
+    font-size: 4em;
+    font-family: 'Basketball', sans-serif;
+}
+.basketball{
+    color: #fcb723fe;
+}
+.navbar-light .navbar-nav .nav-link:focus {
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+.page-item{
+    background-color: #fcb723fe;
+    color: #532682fe;
+}
+.btn-login{
+    width: 80%;
+}
+.card-header{
+    background-color: #532682fe;
+    color: #fcb723fe;
+}
+.card-header:first-child {
+    border-radius: none;
+}
+.btn{
+    background-color: #532682fe;
+    color: #fcb723fe;
+    text-decoration: none;
+    border-color: none;
+}
+.btn:hover{
+    background-color: #fcb723fe;
+    color: #532682fe;
+    text-decoration: none;
+    border-color: none;
+}
+
+.pw-reset{
+    color: #532682fe;
+}
+.menu-title{
+    color: white;
+}
+a:hover{
+    color: #4e2ea8fe;
+}
+.detail{
+    color: #532682fe;
+}
+.logout{
+    color: red;
+}
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+    background-color: #fcb723fe;
+}
+.card-title{
+    color: #fcb723fe;
+}
+.pr{
+    font-size: smaller;
+}
+.bi .bi-plus-square{
+    background-color: #fcb723fe;
+}
+.concept-title{
+    width: 40%;
+}
+.concept{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+.concept:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -webkit-linear-gradient(to right, rgba(85, 38, 130, 255), transparent);
+    background: linear-gradient(to right, rgba(85, 38, 130, 255), transparent);
+}
+.concept-left{
+    text-align: left;
+}
+.concept-right{
+    text-align: right;
+}
+.user-del{
+    color: red;
+}
+.create-user{
+    text-align: center;
+}
+
+.login-text{
+    transform: scale(calc(10 / 12)) translateY(-10px);
+}
+._aa48 {
+    border: 0;
+    display: flex;
+    flex: 1 0 0px;
+    font: inherit;
+    font-size: 100%;
+    height: 36px;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+._aa49 ._aa4a {
+    transform: scale(calc(10 / 12)) translateY(-10px);
+    margin-left: 79px;
+    color: gray;
+}
+._aa4a {
+    border: 0;
+    color: rgb(var(--ig-secondary-text));
+    font: inherit;
+    font-size: var(--system-12-font-size);
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    transition: transform ease-out .1s;
+    -webkit-user-select: none;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+._aa49 ._aa4b {
+    font-size: var(--system-12-font-size);
+    padding: 14px 0 2px 8px!important;
+    width: 70%;
+    margin: auto;
+}
+input:focus {
+    outline: none;
+    border: 2px #532682fe solid;
+    border-radius: 3px;
+}
+.detail{
+    border-bottom: 1px solid;
+    margin-bottom: 3%;
+}
+.box{
+    border: 1px solid gray;
+}

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<div class="flex-column m-auto">
+<div class="row justify-content-center">
         <div class="card mt-3">
             <div class="card-header">
                 <div class='text-center'>予約確認</div>
@@ -37,7 +37,7 @@
             
         </div>
 </div>
-<div class="flex-column m-auto">
+<div class="row justify-content-center">
         <div class="card mt-3">
             <div class="card-header">
                 <div class='text-center'>会員情報</div>
@@ -72,7 +72,7 @@
 <div class="text-center">上記の内容で予約しますか？</div>
 <div class='d-flex justify-content-center'>
     <div class='d-flex mx-3 my-3'>
-        <a href="">
+        <a href="{{ route('home') }}">
             <button class='btn btn-secondary'>戻る</button>
         </a>
     </div>

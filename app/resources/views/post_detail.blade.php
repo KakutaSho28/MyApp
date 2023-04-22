@@ -43,6 +43,7 @@
             </div>
         </div>
     </div>
+@if(Auth::user()->role == 0)
     <div class="row justify-content-center">
         <div class="card mt-3">
             <div class="card-header">
@@ -73,16 +74,42 @@
             </div>
         </div>
     </div>
+@endif
+@if(Auth::user()->role == 1)
+<div class='row justify-content-center'>
+    <div class='d-flex mx-3 my-3'>
+        <a href="{{ route('home') }}">
+            <button class='btn btn-secondary'>戻る</button>
+        </a>
+    </div>
+    <div class='d-flex mx-3 my-3'>
+        @if(!isset($post->booking) == true) 
+        <a href="{{ route('booking.detail',$post['id']) }}">
+            <button class='btn'>予約する</button>
+        </a>
+        @endif
+    </div>
+    <div class='d-flex mx-3 my-3'>
+        @if(isset($post->booking) == true) 
+        <a href="{{ route('booking.cancel',$post->booking->id) }}">
+            <button class='btn'>キャンセルする</button>
+        </a>
+        @endif
+    </div>
+</div>
+@endif
+@if(Auth::user()->role == 0)
 <div class='row justify-content-center'>
     <div class='d-flex mx-3 my-3'>
         <a href="{{ route('delete.post',$post['id'])}} ">
-            <button class='btn btn-secondary'>投稿削除</button>
+            <button class='btn'>投稿削除</button>
         </a>
     </div>
     <div class='d-flex mx-3 my-3'>
         <a href="{{ route('edit.post',$post['id']) }}">
-            <button class='btn btn-secondary'>投稿編集</button>
+            <button class='btn'>投稿編集</button>
         </a>
     </div>
 </div>
+@endif
 @endsection

@@ -72,6 +72,24 @@ class DisplayController extends Controller
         }
         
     }
+    public function Account(User $user){
+        if(auth::user()->role == 0){//0のときは管理者のため、管理者のメインページ
+            $user = new User;
+            $users = $user->where('role', 1)->get();
+            if(isset($request->keyword) && $request->type == 'user'){//一般ユーザ検索
+                $users = User::whereHas('user', function ($query) use ($request) {//管理者がユーザー情報を管理する処理
+                    $query->where('name', 'like', '%'.$request->keyword.'%')
+                        ->orWhere('category', 'like', '%'.$request->keyword.'%');
+                })->where('id',auth::id())
+                ->get();
+            }else{
+                $users = $user->where('role', 1)->get();
+            }
+            return view('account',[
+                'users' => $users,
+            ]);
+        }
+    }
     public function postDetail(Post $post){//投稿詳細
         $bookings = Booking::all();
         return view('post_detail',[
