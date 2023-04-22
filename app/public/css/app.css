@@ -1776,7 +1776,6 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
 }
 
 .table thead th {
@@ -3426,8 +3425,6 @@ input[type=button].btn-block {
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
-  margin: 0.125rem 0 0;
   font-size: 0.9rem;
   color: #212529;
   text-align: left;

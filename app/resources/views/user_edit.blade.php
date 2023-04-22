@@ -21,6 +21,8 @@
               <div class="text-center">
                 @if($user['img'] == "")
                     <img id="no_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
+                    <input type="file" id="img" name="img" file="{{ old('img',$user['img']) }}">
+
                 @else
                     <img id="in_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}">
                     <input type="file" id="img" name="img" file="{{ old('img',$user['img']) }}">

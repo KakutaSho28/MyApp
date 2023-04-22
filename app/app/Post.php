@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Like;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class Post extends Model
@@ -20,7 +22,13 @@ class Post extends Model
     ];
     
     public function booking(){
-        return $this->hasOne('App\Booking','post_id','id');
+        // return $this->hasOne('App\Booking','post_id','id');
+        $x = $this->hasOne('App\Booking','post_id','id');
+        $x = $x->where('user_id',Auth::id());
+        return $x;
+    }
+    public function user(){
+        return $this->hasOne('App\User','post_id','id');
     }
     public function likes(){
         return $this->hasMany(Like::class,'post_id');

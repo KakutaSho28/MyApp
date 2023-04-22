@@ -57,7 +57,7 @@
                                 <a class="page-item dropdown-item" href="{{route('account',Auth::id())}} ">
                                     {{ __('ユーザー情報')}}
                                 @endif
-                                <a class="logout dropdown-item" href="{{ route('logout') }}"
+                                <a class="page-item logout dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('ログアウト') }}
@@ -67,11 +67,13 @@
                                     @csrf
                                 </form>
                             </div>
+                            </div>
                         </li>
                 </ul>
             </div>
         </div>
     </nav>
+
 @endauth
     <main class="py-4">
         @yield('content')

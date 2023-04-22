@@ -1,9 +1,11 @@
 body{
     background-color: white;
 }
-a{
-    color: none;
-    text-decoration: none;
+tr{
+    border: none;
+}
+li{
+    list-style: none;
 }
 .container{
     max-width: 80%;
@@ -15,6 +17,9 @@ a{
 .col-md-8 {
     flex: 0 0 66.66666667%;
     max-width: 47.666667%;
+}
+.card-body{
+    font-family: sans-serif;
 }
 .liked {
     color: rgb(219, 64, 126);
@@ -48,8 +53,21 @@ a{
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+}
 .page-item{
-    background-color: #fcb723fe;
+    background-color: white;
     color: #532682fe;
 }
 .btn-login{
@@ -84,15 +102,11 @@ a{
 a:hover{
     color: #4e2ea8fe;
 }
-.detail{
-    color: #532682fe;
-}
 .logout{
     color: red;
 }
 .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
-    background-color: #fcb723fe;
 }
 .card-title{
     color: #fcb723fe;
@@ -185,9 +199,11 @@ input:focus {
     border-radius: 3px;
 }
 .detail{
-    border-bottom: 1px solid;
     margin-bottom: 3%;
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
 }
+
 .box{
-    border: 1px solid gray;
+    border-bottom: 1px solid gray;
 }

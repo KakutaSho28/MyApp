@@ -47,4 +47,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Like');
     }
+    // public function post($id){
+    //     // return $this->hasOne('App\Post');
+    //     // Auth::user()->booking()->join('App\Post');
+    // }
+    // public function booking(){
+    //     return $this->hasMany('App\Booking');
+    // }
 }

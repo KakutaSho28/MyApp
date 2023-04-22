@@ -20,33 +20,33 @@
                                 <button type='button' class='btn btn-post'><i class="bi bi-plus-square"></i></button>
                             </a>
                         </div>
+                        @foreach($posts as $post)
                     <div class="card-body">
                         <table class='table'>
-                        @foreach($posts as $post)
-                            <thead>
+                            <tbody class="detail">
                                 <tr>
                                     <th scope='col'>タイトル</th>
                                     <th scope='col'>{{ $post['title'] }}</th>
-
                                 </tr>
                                 <tr>
                                     <th scope='col'>開催日時</th>
                                     <th scope='col'>{{ $post['date'] }}</th>
-
                                 </tr>
                                 <tr>
                                     <th scope='col'>世代別カテゴリ</th>
                                     <th scope='col'>{{ config('const')[$post['category']] }}</th>
                                 </tr>
                                 <tr>
-                                <th scope='col'><a class="detail" href="{{ route('post.detail',$post['id']) }}">詳細</a></th>
+                                    <th scope='col'>備考欄</th>
+                                    <th scope='col'>{{ $post['text'] }}</th>
                                 </tr>
-                            </thead>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                <th scope='col'><a href="{{ route('post.detail',$post['id']) }}">詳細</a></th>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

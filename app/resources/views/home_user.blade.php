@@ -16,69 +16,55 @@
                         <button type='submit' class='btn'>検索</button>
                     </form>
                 </div>
+                @foreach($posts as $post)
                 <div class="card-body">
                     <table class='table'>
                         <tbody class="detail">
                             <!-- ここに投稿内容を表示する -->
-                            @foreach($posts as $post)
                                     <tr>
-                                        <th scope='col'>タイトル</th>
-                                        <th scope='col'>{{ $post['title'] }}</th>
+                                        <th scope='col' class="post">タイトル</th>
+                                        <th scope='col' class="post">{{ $post['title'] }}</th>
                                     </tr>
                                     <tr>
-                                        <th scope='col'>開催日時</th>
-                                        <th scope='col'>{{ $post['date'] }}</th>
+                                        <th scope='col' class="post">開催日時</th>
+                                        <th scope='col' class="post">{{ $post['date'] }}</th>
                                     </tr>
                                     <tr>
-                                    <th scope='col'>世代別カテゴリ</th>
-                                        <th scope='col'>{{ config('const')[$post['category']] }}</th>
+                                    <th scope='col' class="post">世代別カテゴリ</th>
+                                        <th scope='col' class="post">{{ config('const')[$post['category']] }}</th>
                                     </tr>
-                                    
-                                    <th scope='col'>
+                                    <tr>
+                                    <th scope='col' class="ml-5">
                                     @if (!$post->isLikedBy(Auth::id()))
                                         <span class="likes">
-                                        <button type="hidden" class="btn-like like-toggle" data-post-id="{{ $post->id }}"><i class="bi bi-heart-fill"></i></button>
+                                            <a type="hidden" class="btn-like like-toggle" data-post-id="{{ $post->id }}"><i class="bi bi-heart-fill" style="font-size: 1.5rem;"></i></a>
                                         </span><!-- /.likes -->
                                     @else
                                         <span class="likes">
-                                            <button type="hidden" class="btn-like like-toggle liked" data-post-id="{{ $post->id }}"><i class="bi bi-heart-fill"></i></button>
+                                            <a type="hidden" class="btn-like like-toggle liked" data-post-id="{{ $post->id }}"><i class="bi bi-heart-fill" style="font-size: 1.5rem;"></i></a>
                                         </span><!-- /.likes -->
                                     @endif
                                     <a class="ml-3" href="{{ route('post.booking',$post['id']) }}">...</a>
                                     </th>
                                 </tr>
-                            @endforeach
                         </tbody>
                     </table>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row">
         <div class="card m-auto">
             <div class="card-header">
                 <div class='text-center'><h2 class="card-title mt-3">予約一覧</h2></div>
-                
             </div>
+            @foreach($bookings as $booking)
             <div class="card-body">
-            <div class='row justify-content-around mt-3 mb-3'>
-                    <form action="/" method="POST">
-                        @csrf
-                        <input type='text' name='keyword' class='' placeholder='条件検索' value="{{ old('keyword') }}">
-                        <input type='hidden' name='type' class='' value='booking'>
-                        <button type='submit' class='btn'>検索</button>
-                    </form>
-                </div>
-                <div class="card-body">
+                    <div class="card-body">
                     <table class='table'>
-                        <thead>
-                            <tr>
-                                <th scope='col'>予約情報</th>
-                            </tr>
-                        </thead>
-                        <tbody class='detail'>
+                    <tbody class='detail'>
                             <!-- ここに登録ユーザを表示する -->
-                            @foreach($bookings as $booking)
                             <tr>
                                 <th scope='col'>開催日時</th>
                                 <th scope='col'>{{ $booking->post->date }}</th>
@@ -92,14 +78,15 @@
                                 <th scope='col'>{{ $booking->post->spot }}</th>
                             </tr>
                                 <th scope='col'>
-                                    <a href="{{ route('post.booking',$booking->post->id) }}">...</a>
+                                    <a href="{{ route('post.booking',$booking->post->id) }}">詳細</a>
                                 </th>
                             </tr>
-                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
+            @endforeach
+
         </div>
     </div>
 </div>

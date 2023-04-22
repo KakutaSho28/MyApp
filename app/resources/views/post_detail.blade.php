@@ -43,38 +43,6 @@
             </div>
         </div>
     </div>
-@if(Auth::user()->role == 0)
-    <div class="row justify-content-center">
-        <div class="card mt-3">
-            <div class="card-header">
-                <div class='text-center'>予約者一覧</div>
-            </div>
-            <div class="card-body">
-                <div class="card-body">
-                    <table class='table'>
-                        <thead>
-                            <tr>
-                                <th scope='col'>名前</th>
-                                <th scope='col'>世代別カテゴリ</th>
-                            </tr>
-                        </thead>
-                        @if(isset($post->booking) == true)
-                        <tbody>
-                            <!-- ここに投稿を表示する -->
-                            @foreach($bookings as $booking)
-                                <tr>
-                                    <th scope='col'>{{ $booking->user->name }}</th>
-                                    <th scope='col'>{{ config('const')[$booking->user->category] }}</th>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                        @endif
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-@endif
 @if(Auth::user()->role == 1)
 <div class='row justify-content-center'>
     <div class='d-flex mx-3 my-3'>
@@ -83,14 +51,14 @@
         </a>
     </div>
     <div class='d-flex mx-3 my-3'>
-        @if(!isset($post->booking) == true) 
+        @if(!isset($post->booking)) 
         <a href="{{ route('booking.detail',$post['id']) }}">
             <button class='btn'>予約する</button>
         </a>
         @endif
     </div>
     <div class='d-flex mx-3 my-3'>
-        @if(isset($post->booking) == true) 
+        @if(isset($post->booking)) 
         <a href="{{ route('booking.cancel',$post->booking->id) }}">
             <button class='btn'>キャンセルする</button>
         </a>

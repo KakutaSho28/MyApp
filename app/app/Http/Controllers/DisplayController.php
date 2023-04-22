@@ -70,7 +70,6 @@ class DisplayController extends Controller
                 'bookings' => $bookings,
             ]);
         }
-        
     }
     public function Account(User $user){
         if(auth::user()->role == 0){//0のときは管理者のため、管理者のメインページ
