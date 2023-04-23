@@ -4,9 +4,9 @@
         <div class="card mt-3">
             <div class="text-center">
                 @if($user['img'] == "")
-                    <img class="mt-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
+                    <img class="mt-5" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
                 @else
-                    <img class="mt-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}">
+                    <img class="mt-5" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}">
                 @endif
             </div>
             <div class="card-body">

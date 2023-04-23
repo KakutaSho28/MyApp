@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row justify-content-around">
-    <div class="col-md-4 like_post">
+    <div class="col-md-4 box">
         <div class="card ">
             <div class="card-header">
                 <div class='text-center'>いいねした投稿</div>
@@ -23,6 +23,10 @@
                             <tr>
                                 <th scope='col'>世代別カテゴリ</th>
                                 <th scope='col'>{{ config('const')[$like->post->category] }}</th>
+                            </tr>
+                            <tr>
+                                <th scope='col'>備考欄</th>
+                                <th scope='col'>{{ $like->post->text }}</th>
                             </tr>
                             <tr>
                             </th>

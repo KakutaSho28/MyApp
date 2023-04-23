@@ -2142,9 +2142,9 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #a1cbef;
+  border-color: #532682fe;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(85, 38, 130, 0.4);
 }
 
 .form-control::-moz-placeholder {
@@ -5654,9 +5654,9 @@ a.badge-dark.focus {
 }
 
 .alert-danger {
-  color: #761b18;
-  background-color: #f9d6d5;
-  border-color: #f7c6c5;
+  color: red;
+  background-color: #fcb723fe;
+  border-color: #4e2ea8fe;
 }
 
 .alert-danger hr {

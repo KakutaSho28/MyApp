@@ -99,7 +99,9 @@ li{
     text-decoration: none;
     border-color: none;
 }
-
+.box{
+    width: 45%;
+}
 .pw-reset{
     color: #532682fe;
 }
@@ -223,4 +225,12 @@ input:focus {
 }
 .user_list th, .user_list td {
     padding: 1.75rem;
+}
+input:focus{
+    border-color: #532682fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(85, 38, 130, 0.4);
+}
+a:hover{
+    text-decoration: none;
 }
