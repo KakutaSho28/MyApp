@@ -41,7 +41,7 @@
                                     <th scope='col'>{{ $post['text'] }}</th>
                                 </tr>
                                 <tr>
-                                <th scope='col'><a href="{{ route('post.detail',$post['id']) }}">詳細</a></th>
+                                <th scope='col'><a class="post_del" href="{{ route('post.detail',$post['id']) }}">...</a></th>
                                 </tr>
                             </tbody>
                         </table>

@@ -2,13 +2,10 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="card mt-3">
-            <div class="card-header">
-                <div class='text-center'>投稿内容</div>
-            </div>
             <div class="card-body">
                 <div class="card-body">
                     <table class='table'>
-                        <thead>
+                        <tbody>
                             <tr>
                                 <th scope='col'>タイトル</th>
                                 <th scope='col'>{{ $post['title'] }}</th>
@@ -37,7 +34,7 @@
                                 <th scope='col'>備考</th>
                                 <th scope='col'>{{ $post['text'] }}</th>
                             </tr>
-                        </thead>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -47,12 +44,12 @@
 <div class='row justify-content-center'>
     <div class='d-flex mx-3 my-3'>
         <a href="{{ route('home') }}">
-            <button class='btn btn-secondary'>戻る</button>
+            <button class='btn'>戻る</button>
         </a>
     </div>
     <div class='d-flex mx-3 my-3'>
         @if(!isset($post->booking)) 
-        <a href="{{ route('booking.detail',$post['id']) }}">
+        <a href="{{ route('booking.post',$post['id']) }}" onclick="return confirm('予約しますか？');">
             <button class='btn'>予約する</button>
         </a>
         @endif
@@ -69,12 +66,12 @@
 @if(Auth::user()->role == 0)
 <div class='row justify-content-center'>
     <div class='d-flex mx-3 my-3'>
-        <a href="{{ route('delete.post',$post['id'])}} ">
+        <a href="{{ route('delete.post',$post['id'])}} " onclick="return confirm('本当に削除しますか？');">
             <button class='btn'>投稿削除</button>
         </a>
     </div>
     <div class='d-flex mx-3 my-3'>
-        <a href="{{ route('edit.post',$post['id']) }}">
+        <a href="{{ route('edit.post',$post['id']) }}" >
             <button class='btn'>投稿編集</button>
         </a>
     </div>

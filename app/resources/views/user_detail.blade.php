@@ -2,10 +2,6 @@
 @section('content')
 <div class="row justify-content-center">
         <div class="card mt-3">
-            <div class="card-header">
-            @if(Auth::user()->role == 1 )<div class='text-center'>マイページ</div>@endif
-            @if(Auth::user()->role == 0 )<div class='text-center'>ユーザー詳細</div>@endif
-            </div>
             <div class="text-center">
                 @if($user['img'] == "")
                     <img class="mt-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
@@ -51,7 +47,7 @@
     </div>
     @if(Auth::user()->role == 0)
     <div class='d-flex mx-3 my-3'>
-        <a href="route('delete.user',$user['id']) ">
+        <a href="{{ route('delete.user',$user['id']) }}" onclick="return confirm('本当に削除しますか？');" >
             <button class='btn'>削除</button>
         </a>
     </div>

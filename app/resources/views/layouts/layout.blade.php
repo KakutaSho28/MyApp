@@ -6,9 +6,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/like.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,6 +17,7 @@
     <link href="{{ asset('css/tba.css') }}" rel="stylesheet">
 </head>
 <body>
+<div id='app'></div>
 <div>
 @auth
     <nav class="navbar navbar-expand-md navbar-light bg-purple shadow-sm">
@@ -37,38 +35,38 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            @if(Auth::user()->img == "")
-                            <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">{{ Auth::user()->name }} <span class="caret"></span>
-                            @else
-                                <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.Auth::user()->img) }}">{{ Auth::user()->name }} <span class="caret"></span>
-                            @endif
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @if(Auth::user()->img == "")
+                        <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">{{ Auth::user()->name }} <span class="caret"></span>
+                        @else
+                            <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.Auth::user()->img) }}">{{ Auth::user()->name }} <span class="caret"></span>
+                        @endif
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="page-item dropdown-item" href="{{ route('user.detail',Auth::id() )}}">
+                                {{ __('マイページ')}}
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="page-item dropdown-item" href="{{ route('user.detail',Auth::id() )}}">
-                                    {{ __('マイページ')}}
-                                </a>
-                                @if(Auth::user()-> role == 1)
-                                <a class="page-item dropdown-item" href="{{route('liked.post',Auth::id())}} ">
-                                    {{ __('いいねした投稿')}}
-                                </a>
-                                @elseif(Auth::user()-> role == 0)
-                                <a class="page-item dropdown-item" href="{{route('account',Auth::id())}} ">
-                                    {{ __('ユーザー情報')}}
-                                @endif
-                                <a class="page-item logout dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('ログアウト') }}
-                                </a>
-                                
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                            </div>
-                        </li>
+                            @if(Auth::user()-> role == 1)
+                            <a class="page-item dropdown-item" href="{{ route('liked.view',Auth::id()) }} ">
+                                {{ __('いいねした投稿')}}
+                            </a>
+                            @elseif(Auth::user()-> role == 0)
+                            <a class="page-item dropdown-item" href="{{route('account',Auth::id())}} ">
+                                {{ __('ユーザー情報')}}
+                            @endif
+                            <a class="page-item logout dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('ログアウト') }}
+                            </a>
+                            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -81,4 +79,8 @@
 </div>
 <div class="text-center m-4"> © ThinkingBasketballAcademy</div>
 </body>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/tba.js') }}" defer></script>
+
 </html>

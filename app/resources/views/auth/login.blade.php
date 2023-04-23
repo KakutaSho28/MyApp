@@ -27,17 +27,24 @@
                 <img style="width: 100%;" src="{{ asset('app_title.jpg') }}" alt="">
             </div>
                 <div class="card-body">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $message)
+                    <p>{{ $message }}</p>
+                    @endforeach
+                </div>
+                @endif
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="form-group row">
-                            <label class="_aa48 _aa49">
-                                <span class="_aa4a">メールアドレス</span>
-                                <input aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="email" type="email" class="_aa4b _add6 _ac4d" value="{{ old('email') }}" autofocus>
-                                @error('email')
+                        @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                        <div class="form-group row">
+                            <label class="_aa48 _aa49">
+                                <span class="_aa4a">メールアドレス</span>
+                                <input aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="email" type="email" class="_aa4b _add6 _ac4d" value="{{ old('email') }}" autofocus>
                             </label>
                         </div>
                         <div class="form-group row">

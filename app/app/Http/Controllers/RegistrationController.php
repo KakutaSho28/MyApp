@@ -84,7 +84,7 @@ class RegistrationController extends Controller
         ]);
     }
     public function editUser(User $user, EditUser $request){
-        $colomns = ['img','name','kana','category','email','tel'];
+        $colomns = ['name','kana','category','email','tel'];
         foreach($colomns as $column){
             $user->$column = $request->$column;
         }

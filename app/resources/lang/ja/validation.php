@@ -151,6 +151,7 @@ return [
         'name' => '名前',
         'kana' => 'ふりがな',
         'email' => 'メールアドレス',
+        'password' => 'パスワード',
         'tel' => '電話番号',
         'birthday' => '生年月日',
         'title' => 'タイトル',

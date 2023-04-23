@@ -39,20 +39,20 @@
 <div class='d-flex justify-content-center'>
     <div class='d-flex mx-3 my-3'>
         <a href="{{ route('home') }}">
-            <button class='btn btn-secondary'>戻る</button>
+            <button class='btn'>戻る</button>
         </a>
     </div>
     <div class='d-flex mx-3 my-3'>
         @if(!isset($post->booking) == true) 
-        <a href="{{ route('booking.detail',$post['id']) }}">
-            <button class='btn btn-secondary'>予約する</button>
+        <a href="{{ route('booking.detail',$post['id']) }}" onclick="return confirm('予約しますか？');">
+            <button class='btn'>予約する</button>
         </a>
         @endif
     </div>
     <div class='d-flex mx-3 my-3'>
         @if(isset($post->booking) == true) 
-        <a href="{{ route('booking.cancel',$post->booking->id) }}">
-            <button class='btn btn-secondary'>キャンセルする</button>
+        <a href="{{ route('booking.cancel',$post->booking->id) }}" onclick="return confirm('キャンセルしますか？');">
+            <button class='btn '>キャンセルする</button>
         </a>
         @endif
     </div>

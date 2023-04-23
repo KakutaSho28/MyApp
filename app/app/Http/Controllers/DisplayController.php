@@ -101,11 +101,8 @@ class DisplayController extends Controller
             'post' => $post,
         ]);
     }
-    public function likedPost(Post $post){//いいねした投稿一覧
-        $posts = Post::all();
-        return view('liked_post',[
-            'posts' => $posts,
-        ]);
+    public function likedView(Post $post){//いいねした投稿一覧
+        return view('liked_post');
     }
     public function userDetail(User $user){
         return view('user_detail',[

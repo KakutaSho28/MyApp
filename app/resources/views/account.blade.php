@@ -12,16 +12,16 @@
                     @csrf
                     <input type='text' name='keyword' class='' placeholder='条件検索'>
                     <input type='hidden' name='type' class='' value='user'>
-                    <button type='submit' class='btn'>検索</button>
+                    <button type='submit' class='btn btn-search'><i class="bi bi-search"></i></button>
                 </form>
                 <div class="card-body">
-                    <table class='table'>
+                    <table class='table user_list'>
                         <thead>
                             <tr>
+                                <th scope='col'></th>
                                 <th scope='col'>名前</th>
                                 <th scope='col'>年齢別カテゴリ</th>
                                 <th scope='col'>電話番号</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -29,10 +29,10 @@
                             @foreach($users as $user)
                                 <tr>
                                 <th scope='col'>
-                                @if($user['img'])
-                                <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}"><span class="caret"></span>
+                                @if( empty($user['img']))
+                                    <img style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}"><span class="caret"></span>
                                 @else
-                                    <img class="mr-2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}"><span class="caret"></span>
+                                    <img style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}"><span class="caret"></span>
                                 @endif
                                         </th>
                                         <th scope='col'>{{ $user['name'] }}</th>

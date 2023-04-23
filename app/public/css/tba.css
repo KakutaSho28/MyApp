@@ -76,6 +76,13 @@ li{
 .card-header{
     background-color: #532682fe;
     color: #fcb723fe;
+    font-weight: bold;
+}
+.card-list{
+    width: 30%;
+}
+.like_post{
+    width: 30%;
 }
 .card-header:first-child {
     border-radius: none;
@@ -204,6 +211,16 @@ input:focus {
     border-radius: 2px;
 }
 
-.box{
-    border-bottom: 1px solid gray;
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #16181b;
+    text-decoration: none;
+    background-color: rgba(85, 38, 130, 0.85);
+    color: aliceblue;
+    border-radius: 1px;
+}
+.post_del{
+    font-size: 20px;
+}
+.user_list th, .user_list td {
+    padding: 1.75rem;
 }

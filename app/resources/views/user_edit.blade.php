@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
       <div class="col col-md-offset-3 col-md-6">
         <nav class="card mt-5">
-          <div class="card-header">アカウント変更</div>
+          <div class="card-header text-center">アカウント変更</div>
           <div class="card-body">
             @if($errors->any())
               <div class="alert alert-danger">
@@ -16,13 +16,10 @@
             @endif
             <form action="{{ route('user.edit',$user['id']) }}" method="POST" enctype="multipart/form-data">
               @csrf
-              
-              <label for="icon">プロフィール画像</label>
-              <div class="text-center">
+              <div class="d-flex">
                 @if($user['img'] == "")
-                    <img id="no_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
+                    <img id="in_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('none_img_boy.jpg') }}">
                     <input type="file" id="img" name="img" file="{{ old('img',$user['img']) }}">
-
                 @else
                     <img id="in_img" class="mx-5" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="{{ asset('storage/img/'.$user['img']) }}">
                     <input type="file" id="img" name="img" file="{{ old('img',$user['img']) }}">
@@ -55,12 +52,12 @@
                 <input type="tel"  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" class="form-control" id="tel" name="tel" value="{{ old('tel',$user['tel']) }}" />
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">{{ __('編集') }}</button>
+                <button type="submit" class="btn">編集</button>
               </div>
             </div>
             </form>
             <div class="text-right mx-2">
-                  <a class="user-del" href="route('softdel.user',Auth::id())">
+                  <a class="user-del" href="route('softdel.user',Auth::id())" onclick="return confirm('本当に削除しますか？');">
                       アカウント削除
                   </a>
               </div>
@@ -70,18 +67,4 @@
     </div>
   </div>
 @endsection
-<script>
-  $("#img").on("change", function (e) {
 
-// 2. 画像ファイルの読み込みクラス
-var reader = new FileReader();
-
-// 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
-reader.onload = function (e) {
-    $("#in_img").attr("src", e.target.result);
-}
-
-// 4. 読み込んだ画像ファイルをURLに変換
-reader.readAsDataURL(e.target.files[0]);
-});
-</script>

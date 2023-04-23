@@ -42,7 +42,7 @@
                                 <label for='text' class='mt-2'>備考</label>
                                 <textarea class='form-control' name='text' id='text' value="">{{ old('text',$post->text) }}</textarea>
                                 <div class='row justify-content-center'>
-                                    <button type='submit' class='btn btn-primary w-25 mt-3'>編集</button>
+                                    <button type='submit' class='btn btn-primary w-25 mt-3' onclick="return confirm('編集しますか？');">編集</button>
                                 </div>  
                         </form>
                     </div>

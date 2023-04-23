@@ -43,7 +43,7 @@
                                 <label for='text' class='mt-2'>備考</label>
                                 <textarea class='form-control' name='text' id='text' value="{{ old('text') }}"></textarea>
                             <div class='row justify-content-center'>
-                                <button type='submit' class='btn btn-primary w-25 mt-3'>投稿</button>
+                                <button type='submit' class='btn w-25 mt-3' onclick="return confirm('この内容で投稿しますか？');">投稿</button>
                             </div> 
                         </form>
                     </div>
