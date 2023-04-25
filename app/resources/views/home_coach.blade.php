@@ -15,7 +15,7 @@
                     <input type='hidden' name='type' class='' value='post'>
                     <button type='submit' class='btn btn-search'><i class="bi bi-search"></i></button>
                 </form>
-                <a href=" {{ route('create.post') }} ">
+                <a href=" {{ route('create.create') }} ">
                     <button type='button' class='btn btn-post'><i class="bi bi-plus-square"></i></button>
                 </a>
             </div>

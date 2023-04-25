@@ -66,12 +66,14 @@
 @if(Auth::user()->role == 0)
 <div class='row justify-content-center'>
     <div class='d-flex mx-3 my-3'>
-        <a href="{{ route('delete.post',$post['id'])}} " onclick="return confirm('本当に削除しますか？');">
-            <button class='btn'>投稿削除</button>
-        </a>
+    <form action="{{route('create.destroy',['create' => $post['id']])}}" method="post">
+            @csrf
+            @method('delete')
+            <button class='btn' onclick="return confirm('本当に削除しますか？');">投稿削除</button>
+        </form>
     </div>
     <div class='d-flex mx-3 my-3'>
-        <a href="{{ route('edit.post',$post['id']) }}" >
+        <a href="{{ route('create.edit',['create' => $post['id']])}}"  >
             <button class='btn'>投稿編集</button>
         </a>
     </div>

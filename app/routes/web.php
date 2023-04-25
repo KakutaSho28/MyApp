@@ -25,13 +25,8 @@ Route::get('/user/{user}/detail','DisplayController@userDetail')->name('user.det
 Route::get('/likedview/{id}','DisplayController@likedView')->name('liked.view');//いいねした投稿表示
 Route::get('/account/{user}','DisplayController@Account')->name('account');//ユーザー情報
 
+Route::resource('/create','TBAResourceController',['only'=>['create','store', 'show', 'edit', 'update','destroy']]);//投稿リソースコントローラ
 
-
-Route::get('/create_post','RegistrationController@createPostForm')->name('create.post');//新規投稿
-Route::post('/create_post','RegistrationController@createPost');
-Route::get('/edit_postform/{post}','RegistrationController@editPostForm')->name('edit.post');//投稿内容変更
-Route::post('/edit_postform/{post}','RegistrationController@editPost');
-Route::get('/delete_postform/{post}','RegistrationController@deletePost')->name('delete.post');//投稿内容削除
 Route::get('/booking_form/{post}','RegistrationController@bookingDetailForm')->name('booking.detail');//予約詳細
 Route::get('/booking_create/{post}','RegistrationController@bookingForm')->name('booking.post');
 Route::get('/booking_cancel/{booking}','RegistrationController@bookingCancel')->name('booking.cancel');//予約キャンセル
@@ -43,7 +38,6 @@ Route::get('/edit_userform/{user}','RegistrationController@editUserForm')->name(
 Route::post('/edit_userform/{user}','RegistrationController@editUser');
 Route::get('/delete_userform/{user}','RegistrationController@deleteUser')->name('delete.user');//アカウント削除
 Route::get('/softdel_userform/{user}','RegistrationController@softdelUser')->name('softdel.user');//アカウント論理削除
-
 
 
 

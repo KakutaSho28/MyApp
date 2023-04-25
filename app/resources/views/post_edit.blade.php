@@ -18,8 +18,9 @@
                                 </ul>
                             </div>
                             @endif
-                        <form action="{{ route('edit.post',['post' => $post]) }}" method="post">
+                        <form action="{{ route('create.update',['create' => $post['id']])}}" method="post">
                         @csrf
+                        @method('PUT')
                             <label for='title'>タイトル</label>
                                 <input type='text' class='form-control' name='title' value="{{ old('title',$post['title']) }}"/>
                             <label for='date' class='mt-2'>日付</label>
@@ -42,7 +43,7 @@
                                 <label for='text' class='mt-2'>備考</label>
                                 <textarea class='form-control' name='text' id='text' value="">{{ old('text',$post->text) }}</textarea>
                                 <div class='row justify-content-center'>
-                                    <button type='submit' class='btn btn-primary w-25 mt-3' onclick="return confirm('編集しますか？');">編集</button>
+                                    <button type='submit' class='btn  w-25 mt-3' onclick="return confirm('編集しますか？');">編集</button>
                                 </div>  
                         </form>
                     </div>
