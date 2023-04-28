@@ -4,10 +4,10 @@
         <div class="col-md-5 mx-auto">
             <div class="card">
                 <div class="card-header">
-                    <h4 class='text-center'>新規投稿</h1>
+                    <div class='text-center'><h2 class="card-title mt-3">新規投稿</h2></div>
                 </div>
                 <div class="card-body">
-                <h2 class="ml-2" style="font-size: medium;"><span style="color: red;">※</span>は必須項目です。</h2>
+                <h2 class="ml-3" style="font-size: medium;"><span style="color: red;">※</span>は必須項目です。</h2>
                     <div class="card-body">
                         <div class='panel-body'>
                             @if($errors->any())

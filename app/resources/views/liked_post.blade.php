@@ -5,7 +5,7 @@
     <div class="col-md-4 box">
         <div class="card ">
             <div class="card-header">
-                <div class='text-center'>いいねした投稿</div>
+                <div class='text-center'><h2 class="card-title mt-3">いいねした投稿</h2></div>
             </div>
             <div class="card-body">
             @foreach(Auth::user()->like as $like)

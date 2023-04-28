@@ -37,6 +37,8 @@ class RegistrationController extends Controller
     //投稿削除
     public function deletePost(Post $post){
         $post->delete();
+        Booking::where('post_id',$post->id)->delete();
+        Like::where('post_id',$post->id)->delete();
         return redirect('/');
     }
 

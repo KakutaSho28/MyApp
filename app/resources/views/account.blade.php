@@ -4,16 +4,9 @@
 <div class="row justify-content-center">
         <div class="card">
             <div class="card-header">
-                <div class='text-center'>登録ユーザ一覧</div>
-                
+                <div class="text-center"><h2 class="card-title mt-3">登録ユーザ一覧</h2></div>
             </div>
             <div class="card-body">
-            <form class="text-right" action="/" method="POST">
-                    @csrf
-                    <input type='text' name='keyword' class='' placeholder='条件検索'>
-                    <input type='hidden' name='type' class='' value='user'>
-                    <button type='submit' class='btn btn-search'><i class="bi bi-search"></i></button>
-                </form>
                 <div class="card-body">
                     <table class='table user_list'>
                         <thead>

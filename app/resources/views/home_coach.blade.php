@@ -5,7 +5,6 @@
     <div class="card box">
         <div class="card-header">
             <div class='text-center'><h2 class="card-title mt-3">投稿一覧</h2></div>
-                
         </div>
         <div class="card-body">
             <div class='row justify-content-around'>

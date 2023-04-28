@@ -119,6 +119,7 @@ a:hover{
 }
 .card-title{
     color: #fcb723fe;
+    font-weight: bold;
 }
 .pr{
     font-size: smaller;
