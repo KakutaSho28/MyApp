@@ -32,6 +32,7 @@ class DisplayController extends Controller
             $posts = Post::where('title', 'like', '%'.$request->keyword.'%')
                             ->orWhere('date', 'like', '%'.$request->keyword.'%')
                             ->orWhere('category', 'like', '%'.$value.'%')
+                            ->latest()
                             ->get();
         }else{
             $posts = Post::all();
@@ -46,7 +47,7 @@ class DisplayController extends Controller
                 })->where('id',auth::id())
                 ->get();
             }else{
-                $users = $user->where('role', 1)->get();
+                $users = $user->where('role', 1)->latest()->get();
             }
             return view('home_coach',[
                 'posts' => $posts,
@@ -61,9 +62,11 @@ class DisplayController extends Controller
                         ->orWhere('date', 'like', '%'.$request->keyword.'%')
                         ->orWhere('spot', 'like', '%'.$request->keyword.'%');
                 })->where('user_id',auth::id())
+                ->latest()
                 ->get();
             }else{
-                $bookings = Booking::where('user_id',auth::id())->get();
+                $bookings = Booking::where('user_id',auth::id())
+                            ->latest()->get();
             }
             return view('home_user',[
                 'posts' => $posts,
@@ -80,9 +83,10 @@ class DisplayController extends Controller
                     $query->where('name', 'like', '%'.$request->keyword.'%')
                         ->orWhere('category', 'like', '%'.$request->keyword.'%');
                 })->where('id',auth::id())
+                ->latest()
                 ->get();
             }else{
-                $users = $user->where('role', 1)->get();
+                $users = $user->where('role', 1)->latest()->get();
             }
             return view('account',[
                 'users' => $users,
